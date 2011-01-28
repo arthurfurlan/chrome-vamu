@@ -1,0 +1,24 @@
+<style>
+body {
+  min-width:357px;
+  overflow-x:hidden;
+}
+
+img {
+  margin:5px;
+  border:2px solid black;
+  vertical-align:middle;
+  width:75px;
+  height:75px;
+}
+</style>
+
+<script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/jquery/1.4.2/jquery.min.js" /></script>
+<script type="text/javascript">
+    chrome.tabs.getSelected(null, function(tab) {
+        $.get('http://va.mu/api/create/?url='
+                + encodeURIComponent(tab.url),
+            function(data) { document.write(data); }
+        );
+    });
+</script>
