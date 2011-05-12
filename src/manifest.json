@@ -1,6 +1,6 @@
 {
     "name": "va.mu",
-    "version": "0.1",
+    "version": "0.2",
     "description": "Lets you shorten an URL using the http://va.mu",
     "browser_action": {
         "default_icon": "icon.png",
