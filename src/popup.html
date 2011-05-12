@@ -18,7 +18,19 @@ img {
     chrome.tabs.getSelected(null, function(tab) {
         $.get('http://va.mu/api/create/?url='
                 + encodeURIComponent(tab.url),
-            function(data) { document.write(data); }
+            function(data) {
+                document.write(data);
+
+                // copy the new url to the clipboard
+                var bg = chrome.extension.getBackgroundPage();
+                var clipboardholder = bg.document.getElementById('clipboardholder');
+                clipboardholder.style.display = 'block';
+                clipboardholder.value = data;
+                clipboardholder.select();
+                bg.document.execCommand('Copy');
+                clipboardholder.style.display = 'none';
+                alert('Content copied to clipboard!');
+            }
         );
     });
 </script>
