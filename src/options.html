@@ -1,0 +1,60 @@
+<!doctype html>
+<html>
+<head>
+  <title>Va.mu</title>
+  <style>
+    body {
+      min-width:490px;
+      overflow-x:hidden;
+      font-family: Verdana,Sans;
+      font-size: 1em;
+      position: relative;
+    }
+
+
+    p {
+      color: #666;
+    }
+
+    div.content, h2 {
+      text-align: center;
+      padding-bottom: 10px;
+    }
+
+    button {
+      padding: 3px;
+    }
+
+    #logo img {
+      position: absolute;
+      bottom: 0px;
+      right: 0px;
+    }
+
+    button {
+      font-size: 1em;
+    }
+  </style>
+
+</head>
+<body>
+    <!--
+  <p id="success" style="display:none">Pronto! Agora você pode compartilhar uma URL menor e ainda acompanhar seus clicks!</p>
+    -->
+<h2>Opções do Va.mu</h2>
+
+<div class="content">
+  <input type="checkbox" id="autoCtrlV">Copiar para a área de transferência (Ctrl+C) automaticamente?
+  <br />
+  <div id="status"></div>
+  <br />
+  <button id="save">Salvar opções</button>
+</div>
+
+<!-- Logo -->
+  <span id="logo">
+    <img id="logoImg" src="logo.png" />
+  </span>
+</body>
+<script type="text/javascript" src="options.js"></script>
+</html>
