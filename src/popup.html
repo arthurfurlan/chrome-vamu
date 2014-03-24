@@ -1,35 +1,58 @@
-<style>
-body {
-  min-width:357px;
-  overflow-x:hidden;
-}
+<!doctype html>
+<html>
+  <head>
+    <title>Va.mu</title>
+    <style>
+      body {
+        min-width:490px;
+        overflow-x:hidden;
+        font-family: Verdana,Sans;
+        font-size: 1em;
+        position: relative;
+      }
 
-img {
-  margin:5px;
-  border:2px solid black;
-  vertical-align:middle;
-  width:75px;
-  height:75px;
-}
-</style>
 
-<script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/jquery/1.4.2/jquery.min.js" /></script>
-<script type="text/javascript">
-    chrome.tabs.getSelected(null, function(tab) {
-        $.get('http://va.mu/api/create/?url='
-                + encodeURIComponent(tab.url),
-            function(data) {
-                document.write(data);
+      p {
+        color: #666;
+      }
 
-                // copy the new url to the clipboard
-                var bg = chrome.extension.getBackgroundPage();
-                var clipboardholder = bg.document.getElementById('clipboardholder');
-                clipboardholder.style.display = 'block';
-                clipboardholder.value = data;
-                clipboardholder.select();
-                bg.document.execCommand('Copy');
-                clipboardholder.style.display = 'none';
-            }
-        );
-    });
-</script>
+      div.content {
+        text-align: center;
+        padding-bottom: 10px;
+      }
+
+      button {
+        padding: 3px;
+      }
+
+      div.buttons {
+        text-align: center;
+      }
+      #logo img {
+        position: absolute;
+        bottom: 0px;
+        right: 0px;
+      }
+    </style>
+
+    <script type="text/javascript" src="jquery.min.js"></script>
+    <script type="text/javascript" src="popup.js"></script>
+  </head>
+  <body>
+  <div id="loading" style="display:none">
+    <img src="loading.gif" />
+  </div>
+  <p id="success" style="display:none">Pronto! Agora você pode compartilhar uma URL menor e ainda acompanhar seus clicks!</p>
+  <div class="content"></div>
+
+  <div class="buttons">
+    <button id="urlClipboard" class="urlClipboard" style="display:none">Copiar para a área de transferência (Ctrl+C)</button>
+
+    <button id="urlStats" class="urlStats" style="display:none">Acompanhe os clicks dessa URL</button>
+  </div>
+    <p id="nwWarning" style="font-style: italic; font-size: .8em; display:none;">(abre em nova aba)</p>
+    <span id="logo">
+      <img id="logoImg" src="logo.png" />
+    </span>
+  </body>
+</html>
